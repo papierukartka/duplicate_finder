@@ -18,8 +18,16 @@ def dir_structure(directory):
     dict
         Dictionary that reflect's directory structure.
     """
+    dir_representation = {}
 
-    pass
+    first_layer = os.scandir(directory)
+    for entry in first_layer:
+        if os.DirEntry.is_dir(entry):
+            # TODO: new layer
+        elif os.DirEntry.is_file(entry):
+            # TODO: add to representation
+    return 12
+
 
 def info(file):
     """
