@@ -4,28 +4,25 @@ import os
 from json import dumps
 
 
-def dir_structure(directory):
+def dir_structure(root):
     """
     Crawls down given directory to create a folder map.
 
     Parameters
     ----------
-    directory : str
+    root : str
         Relative path to directory root.
 
     Returns
     -------
     dict
-        Dictionary that reflect's directory structure.
+        Dictionary that reflects directory structure.
     """
     dir_representation = {}
 
-    first_layer = os.scandir(directory)
-    for entry in first_layer:
-        if os.DirEntry.is_dir(entry):
-            # TODO: new layer
-        elif os.DirEntry.is_file(entry):
-            # TODO: add to representation
+    for folder, subfolders, files in os.walk(root):
+        pass# TODO: do stuff
+
     return 12
 
 
