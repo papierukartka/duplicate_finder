@@ -37,5 +37,4 @@ def test_dir_structure_should_return_valid_structure():
             'type': '.txt'
         }
     ]
-    find.dir_structure('./tests/sample_directory')
-    pass
+    assert find.dir_structure('./tests/sample_directory') == directory

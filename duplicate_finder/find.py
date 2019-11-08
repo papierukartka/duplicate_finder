@@ -6,7 +6,8 @@ from json import dumps
 
 def dir_structure(root):
     """
-    Crawls down given directory to create a folder map.
+    Crawls down given directory to create a folder map. Populates map
+    with file properties.
 
     Parameters
     ----------
@@ -18,7 +19,12 @@ def dir_structure(root):
     dict
         Dictionary that reflects directory structure.
     """
-    dir_representation = {}
+    dir_representation = set()
+
+    walker = os.walk(root)
+    steps = []
+    for step in os.walk(root):
+        steps.append(step)
 
     for folder, subfolders, files in os.walk(root):
         pass# TODO: do stuff
