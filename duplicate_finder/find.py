@@ -19,17 +19,22 @@ def dir_structure(root):
     dict
         Dictionary that reflects directory structure.
     """
-    dir_representation = set()
+    dir_representation = []
 
     walker = os.walk(root)
-    steps = []
-    for step in os.walk(root):
-        steps.append(step)
 
     for folder, subfolders, files in os.walk(root):
-        pass# TODO: do stuff
-
-    return 12
+        for file in files:
+            file_path = os.path.join(folder, file)
+            dir_representation.append(
+                {
+                    'file': file_path,
+                    'size': os.stat(file_path).st_size
+                }
+        )
+    # tried sorting it but dict is not sortable.
+    # try converting dict to str and store everything in some hashable object
+    return sorted(dir_representation)
 
 
 def info(file):

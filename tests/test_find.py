@@ -6,35 +6,35 @@ def test_dir_structure_should_return_valid_structure():
     directory = [
         {
             'file': './tests/sample_directory/poznan.txt',
-            'type': 'text'
+            'size': 5
         },
         {
             'file': './tests/sample_directory/poznan/carrot.txt',
-            'type': '.txt',
+            'size': 0,
         },
         {
             'file': './tests/sample_directory/poznan/poznan.txt',
-            'type': '.txt'
+            'size': 0
         },
         {
             'file': './tests/sample_directory/poznan/rot.txt',
-            'type': '.txt'
+            'size': 0
         },
         {
             'file': './tests/sample_directory/poznan/test.txt',
-            'type': '.txt'
+            'size': 0
         },
         {
             'file': './tests/sample_directory/poznan/secret/badtouch.jpg',
-            'type': '.jpg'
+            'size': 0
         },
         {
             'file': './tests/sample_directory/wroclaw/pic1.txt',
-            'type': '.txt'
+            'size': 0
         },
         {
             'file': './tests/sample_directory/wroclaw/tomato.txt',
-            'type': '.txt'
+            'size': 25
         }
     ]
-    assert find.dir_structure('./tests/sample_directory') == directory
+    assert find.dir_structure('./tests/sample_directory') == sorted(directory)
