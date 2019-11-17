@@ -3,8 +3,8 @@
 venv-init:
 	pipenv shell
 
-coverage:
-	coverage report
+test:
+	pytest
 
 clean:
 	rm -rf ./**/__pycache__
