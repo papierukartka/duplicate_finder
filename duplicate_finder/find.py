@@ -28,46 +28,29 @@ def dir_structure(root):
                 str(
                     {
                         'file': file_path,
-                        'size': os.stat(file_path).st_size
+                        'metadata': info(file_path)
                     }
                 )
         )
     return dir_representation
 
 
-def info(file):
+def info(file_path):
     """
     Find out file metadata.
 
     Parameters
     ----------
-    file : str
+    file_path : str
 
     Returns
     -------
-    ????
-        tba
+    dict
+        object containing field with file size
     """
-
-    pass
-
-
-def duplicates(directory):
-    """
-    Duplicated files in a given directory.
-
-    Parameters
-    ----------
-    directory : dict
-        Map of the directory to be analyzed.
-
-    Returns
-    -------
-    list
-        List of paths to duplicates that are to be removed(looking from the root dir perspective).
-    """
-
-    pass
+    return {
+        'size': os.stat(file_path).st_size
+    }
 
 
 def clear(duplicates, directory):
