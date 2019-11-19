@@ -1,5 +1,3 @@
-# !todo: info - what should it return?
-
 import os
 from json import dumps
 
@@ -51,23 +49,3 @@ def info(file_path):
     return {
         'size': os.stat(file_path).st_size
     }
-
-
-def clear(duplicates, directory):
-    """
-    Removes duplicates from the given directory.
-
-    Parameters
-    ----------
-    directory : str
-        Root directory that contains duplicates.
-    duplicates : list
-        List of paths to duplicates that are to be removed(looking from the root dir perspective).
-
-    Returns
-    -------
-    int
-        0 if everything went as intended
-
-    """
-    pass
