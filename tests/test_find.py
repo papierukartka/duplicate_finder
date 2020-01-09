@@ -1,5 +1,5 @@
 import pytest
-from duplicate_finder import find
+from duplicate_finder import find, mock_find
 
 
 def test_dir_structure_should_return_valid_structure():
@@ -15,3 +15,6 @@ def test_dir_structure_should_return_valid_structure():
     }
 
     assert find.dir_structure('./tests/sample_directory') == directory
+
+def test_whether_it_even_works():
+    mock_find.info('./tests/sample_directory/poznan.txt')
