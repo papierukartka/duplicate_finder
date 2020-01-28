@@ -2,16 +2,19 @@ import pytest
 from duplicate_finder import find, mock_find
 
 
+def test_single_dir_structure_entry():
+    entry = {"{'path': './tests/sample_directory/1file/1.txt', 'metadata': {'name': '1.txt', 'size': 3}}"}
+
+    assert find.dir_structure('./tests/sample_directory/1file/') == entry
+
 def test_dir_structure_should_return_valid_structure():
     directory = {
-        "{'file': './tests/sample_directory/poznan.txt', 'metadata': {'size': 5}}",
-        "{'file': './tests/sample_directory/poznan/carrot.txt', 'metadata': {'size': 0}}",
-        "{'file': './tests/sample_directory/poznan/poznan.txt', 'metadata': {'size': 0}}",
-        "{'file': './tests/sample_directory/poznan/rot.txt', 'metadata': {'size': 0}}",
-        "{'file': './tests/sample_directory/poznan/test.txt', 'metadata': {'size': 0}}",
-        "{'file': './tests/sample_directory/poznan/secret/badtouch.jpg', 'metadata': {'size': 0}}",
-        "{'file': './tests/sample_directory/wroclaw/pic1.txt', 'metadata': {'size': 0}}",
-        "{'file': './tests/sample_directory/wroclaw/tomato.txt', 'metadata': {'size': 25}}"
+        "{'path': './tests/sample_directory/1file/1.txt', 'metadata': {'name': '1.txt', 'size': 3}}",
+        "{'path': './tests/sample_directory/2files/first.txt', 'metadata': {'name': 'first.txt', 'size': 3}}",
+        "{'path': './tests/sample_directory/2files/second.txt', 'metadata': {'name': 'second.txt', 'size': 3}}",
+        "{'path': './tests/sample_directory/nested_directories/1file/file.xd', 'metadata': {'name': 'file.xd', 'size': 3}}",
+        "{'path': './tests/sample_directory/nested_directories/2files/first.txt', 'metadata': {'name': 'first.txt', 'size': 3}}",
+        "{'path': './tests/sample_directory/nested_directories/2files/second.txt', 'metadata': {'name': 'second.txt', 'size': 3}}",
     }
 
     assert find.dir_structure('./tests/sample_directory') == directory
