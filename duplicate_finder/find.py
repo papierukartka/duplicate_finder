@@ -14,8 +14,8 @@ def dir_structure(tree_root):
 
     Returns
     -------
-    dict
-        Dictionary that reflects directory structure.
+    set
+        Set of stringified dictionaries that reflect directory structure.
     """
     dir_representation = set()
 
@@ -25,11 +25,11 @@ def dir_structure(tree_root):
             dir_representation.add(
                 str(
                     {
-                        'file': file_path,
+                        'path': file_path,
                         'metadata': info(file_path)
                     }
                 )
-        )
+            )
     return dir_representation
 
 
@@ -47,5 +47,6 @@ def info(file_path):
         object containing field with file size
     """
     return {
-        'size': os.stat(file_path).st_size
+        'name': os.path.basename(file_path),
+        'size': os.stat(file_path).st_size,
     }
