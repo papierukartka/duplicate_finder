@@ -3,5 +3,7 @@ python:
   - "3.6"
   - "3.7"
 install:
-  - make venv-init
-script: make test
+  - pip install -r requirements.txt
+script: 
+  - make sample-directory
+  - make test
