@@ -2,20 +2,13 @@ import os
 from json import dumps
 
 
-def dir_structure(tree_root):
+def dir_structure(tree_root: str) -> set:
     """
     Crawls down given directory to create a folder map. Populates map
     with file properties.
 
-    Parameters
-    ----------
-    tree_root : str
-        Relative path to directory tree root.
-
-    Returns
-    -------
-    set
-        Set of stringified dictionaries that reflect directory structure.
+    :param tree_root: Relative path to directory tree root.
+    :returns: Set of stringified dictionaries that reflect directory structure.
     """
     dir_representation = set()
 
@@ -33,18 +26,12 @@ def dir_structure(tree_root):
     return dir_representation
 
 
-def info(file_path):
+def info(file_path: str) -> dict:
     """
     Find out file metadata.
 
-    Parameters
-    ----------
-    file_path : str
-
-    Returns
-    -------
-    dict
-        object containing field with file size
+    :param file_path: Path to file from to gather metadata
+    :returns: Object containing field with file size
     """
     return {
         'name': os.path.basename(file_path),
