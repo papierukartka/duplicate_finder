@@ -1,4 +1,5 @@
 import os
+import hashlib
 from json import dumps
 
 
@@ -36,4 +37,18 @@ def info(file_path: str) -> dict:
     return {
         'name': os.path.basename(file_path),
         'size': os.stat(file_path).st_size,
+        'hash': sha(file_path)
     }
+
+
+def sha(file_path: str) -> str:
+    """
+    Computes hash for contents of the given file
+
+    :param file_path: Path to file
+    :returns: sha1 of the contents of the file
+    """
+    return hashlib.sha1(
+        open(file_path, "rb")
+        .read()
+    ).hexdigest()
