@@ -1,7 +1,7 @@
 #!/usr/bin/env make
 
-venv-init:
-	pipenv shell
+install:
+	pip install -r requirements.txt
 
 test:
 	pytest
