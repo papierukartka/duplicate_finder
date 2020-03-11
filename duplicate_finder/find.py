@@ -17,12 +17,7 @@ def dir_structure(tree_root: str) -> set:
         for file in files:
             file_path = os.path.join(folder, file)
             dir_representation.add(
-                str(
-                    {
-                        'path': file_path,
-                        'metadata': info(file_path)
-                    }
-                )
+                str({"path": file_path, "metadata": info(file_path)})
             )
     return dir_representation
 
@@ -35,9 +30,9 @@ def info(file_path: str) -> dict:
     :returns: Object containing field with file size
     """
     return {
-        'name': os.path.basename(file_path),
-        'size': os.stat(file_path).st_size,
-        'hash': sha(file_path)
+        "name": os.path.basename(file_path),
+        "size": os.stat(file_path).st_size,
+        "hash": sha(file_path),
     }
 
 
@@ -48,7 +43,4 @@ def sha(file_path: str) -> str:
     :param file_path: Path to file
     :returns: sha1 of the contents of the file
     """
-    return hashlib.sha1(
-        open(file_path, "rb")
-        .read()
-    ).hexdigest()
+    return hashlib.sha1(open(file_path, "rb").read()).hexdigest()
