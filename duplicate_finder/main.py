@@ -9,7 +9,7 @@ import click
 )
 def analyze(path):
     """Analyze given directory and files within & return it's metadata."""
-    click.echo("%s" % find.dir_structure(path))
+    click.echo(f"{find.dir_structure(path)}")
 
 
 if __name__ == "__main__":
